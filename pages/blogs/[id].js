@@ -10,6 +10,26 @@ const SinglePost = () => {
   const {id} = router.query
   const post = blogdata.find((post) => post.id === parseInt(id))
 
+  if (!post) {
+    return (
+      <>
+        <Head>
+          <title>Post Not Found</title>
+        </Head>
+        <section className='post-details bg-top'>
+          <div className='container'>
+            <div className='heading-title'>
+              <TitleSm title='Post Not Found'/>
+              <br/>
+              <br/>
+              <Title title='The post you are looking for does not exist.' className='title-bg'/>
+            </div>
+          </div>
+        </section>
+      </>
+    )
+  }
+
   return (
     <>
       <Head>
